@@ -29,9 +29,9 @@ const StudentFeeDetails = () => {
     console.log("Sending data:", newFeeRecord);  // Log to check the data being sent
 
     try {
-      const response = await axios.post("http://localhost:5001/api/students/add", newFeeRecord);
-      setSuccess(response.data.message); // Display success message from the backend
-      setError("");  // Clear any previous error message
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/students/add`, newFeeRecord);
+      setSuccess(response.data.message); 
+      setError("");  
     } catch (error) {
       console.error("Error:", error.response ? error.response.data : error);
       setError("Failed to add fee details. Please try again later.");
@@ -42,8 +42,8 @@ const StudentFeeDetails = () => {
     <div className="student-fee-details-container">
       <h2 className="title">Add Fee Details</h2>
 
-      {error && <div className="error-message">{error}</div>}  {/* Display error if any */}
-      {success && <div className="success-message">{success}</div>}  {/* Display success message */}
+      {error && <div className="error-message">{error}</div>} 
+      {success && <div className="success-message">{success}</div>}  
 
       <form onSubmit={handleSubmit} className="fee-form">
   <div className="input-container">

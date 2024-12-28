@@ -9,7 +9,7 @@ const StudentList = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/students');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/students`);;
         setStudents(response.data);
       } catch (error) {
         console.error("Error fetching student data", error);
@@ -25,7 +25,7 @@ const StudentList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5001/api/students/delete/${id}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/students/delete/${id}`);
       alert("Student details deleted successfully!");
       // Reload the list after deletion
       setStudents(students.filter((student) => student._id !== id));
