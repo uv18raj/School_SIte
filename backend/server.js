@@ -5,19 +5,20 @@ const dotenv = require("dotenv");
 const studentRoutes = require("./routes/students");
 const cors = require("cors");
 
+// Load environment variables from .env file
 dotenv.config();
 
 const app = express();
 
+// Enable CORS and parse JSON payloads
 app.use(
   cors({
     origin:
-      process.env.FRONTEND_URL || "https://school-frontend-w9x5.onrender.com",
+      process.env.FRONTEND_URL || "https://school-frontend-w9x5.onrender.com", // Correct origin without the trailing slash
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
 );
-
 app.use(express.json());
 
 // Set up the routes
