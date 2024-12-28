@@ -9,9 +9,9 @@ const StudentList = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/students`);
-        // or
-        // const response = await axios.get('https://school-site-backend.onrender.com');
+        const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/students`);
+        // Use the fetched data to update the students state
+        setStudents(data);
       } catch (error) {
         console.error('Error fetching students:', error);
       }
@@ -67,7 +67,8 @@ const StudentList = () => {
               <td>{student.feeOfMonth}</td>
               <td>Rs {student.totalAmountPaid}</td>
               <td> {new Date(student.datePaid).toLocaleDateString('en-GB')}{" "}
-        {new Date(student.datePaid).toLocaleTimeString('en-US', { hour12: false })}</td>
+                  {new Date(student.datePaid).toLocaleTimeString('en-US', { hour12: false })}
+              </td>
               <td>
                 <button
                   onClick={() => handleDelete(student._id)}
