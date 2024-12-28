@@ -1,0 +1,169 @@
+/* GenerateReportCard.css */
+
+/* Overall container for the report card form */
+.report-card-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading for the report card section */
+.report-card-heading {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+.report-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Styling for form labels */
+.form-label {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Styling for form inputs */
+.form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Subject container section */
+.subject-container {
+    margin-top: 20px;
+}
+
+/* Heading for the subjects section */
+.subject-container h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style for each subject input row */
+.subject-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Subject input styles */
+.subject-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+/* Marks input styles */
+.marks-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 120px;
+}
+
+/* Button styles */
+.add-subject-button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-subject-button:hover {
+    background-color: #45a049;
+}
+
+.generate-report-button {
+    padding: 12px 25px;
+    background-color: #ff5722;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.generate-report-button:hover {
+    background-color: #e64a19;
+}
+
+/* Box for student information */
+.info-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+/* Add margin and padding for the report card sections */
+.report-card-section {
+    margin: 15px 0;
+}
+
+/* Styling for subject table */
+.report-card-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-card-table th,
+.report-card-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.report-card-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Signature section */
+.signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.signature-section div {
+    text-align: center;
+    width: 45%;
+}
+
+.signature-line {
+    width: 100%;
+    border-top: 1px solid #000;
+    margin-top: 5px;
+}
+
+.signature-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}

@@ -1,0 +1,77 @@
+/* Gallery Container */
+.gallery-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.gallery-container p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Gallery Item */
+.gallery-item {
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Ensuring all images have the same width and height */
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    /* Fixed height */
+    object-fit: cover;
+    /* Ensures images maintain aspect ratio while filling the area */
+    border-radius: 8px;
+}
+
+/* Lightbox styles */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox-content {
+    position: relative;
+}
+
+.lightbox-content img {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    /* Ensures the lightbox image fits within the container while maintaining its aspect ratio */
+    border-radius: 10px;
+}
+
+/* Ensures a pointer cursor when lightbox is clicked */
+.lightbox:active {
+    cursor: pointer;
+}

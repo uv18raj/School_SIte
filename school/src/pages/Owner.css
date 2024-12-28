@@ -1,0 +1,93 @@
+/* src/pages/Owner.css */
+
+/* Main container for login */
+.owner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Form container for better alignment */
+.login-form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+}
+
+/* When the form is hovered */
+.login-form-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Heading style */
+.login-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Label styles */
+.login-label {
+    display: block;
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+/* Input styles */
+.login-input {
+    width: 94%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Focus state of input fields */
+.login-input:focus {
+    border-color: #4e73df;
+}
+
+/* Button styles */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff5722;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #333;
+}
+
+/* Error message style */
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: center;
+    display: none;
+}
+
+/* Display the error message */
+.error-message.show {
+    display: block;
+}

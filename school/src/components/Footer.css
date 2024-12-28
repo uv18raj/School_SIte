@@ -1,0 +1,34 @@
+/* Footer styling */
+.footer {
+    background-color: #333;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+.social-link {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-link img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-link img:hover {
+    transform: scale(1.2);
+}
+.social-link:hover {
+    color: #ff6f61;
+}
+
+.social-link i {
+    margin-right: 8px;
+}
