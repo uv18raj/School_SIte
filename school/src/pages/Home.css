@@ -4,9 +4,10 @@
     color: #333;
     margin: 0;
     padding: 0;
+    background-color: #e6f7ff;
+    /* Light blue background */
 }
 
-/* Hero Section */
 /* Hero Section */
 .hero {
     background: url('../assets/background.jpg') no-repeat center center/cover;
@@ -17,23 +18,24 @@
     color: white;
     text-align: center;
     padding: 0 20px;
-    background-color: rgba(255, 255, 255, 0.4);
-    /* Semi-transparent overlay for better contrast */
+    background-color: rgba(173, 216, 230, 0.5);
+    /* Light blue overlay */
 }
 
+/* Hero Content */
 .hero-content {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Hero Text */
 .hero h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
     font-weight: bold;
     letter-spacing: 1px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    /* Adds subtle shadow to make the text pop */
 }
 
 .hero p {
@@ -41,38 +43,37 @@
     margin-bottom: 30px;
     line-height: 1.5;
     font-weight: 300;
-    /* Lighter weight for description text */
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     color: #f4f4f4;
-    /* Subtle shadow for better visibility */
 }
 
+/* CTA Button */
 .cta-button {
     padding: 15px 30px;
-    background-color: #ff6f61;
+    background-color: #0099cc;
+    /* Blue button */
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.1rem;
     font-weight: bold;
     letter-spacing: 1px;
-    border: 2px solid #ff6f61;
+    border: 2px solid #0099cc;
     transition: all 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #ffffff;
-    color: #ff6f61;
+    color: #0099cc;
     transform: scale(1.05);
-    /* Slight scale effect to make the button pop */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    /* Adding shadow on hover */
 }
 
 /* Why Choose Us Section */
 .why-choose-us {
-    background-color: #f8f8f8;
+    background-color: #f0f8ff;
+    /* Light blue background */
     padding: 60px 20px;
     text-align: center;
 }
@@ -92,7 +93,8 @@
 }
 
 .card {
-    background-color: #fff;
+    background-color: #ffffff;
+    /* White cards */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -127,7 +129,8 @@
 /* Testimonials Section */
 .testimonials {
     padding: 60px 20px;
-    background-color: #f4f4f4;
+    background-color: #f0f8ff;
+    /* Light blue background */
     text-align: center;
 }
 
@@ -144,7 +147,8 @@
 }
 
 .testimonial {
-    background-color: #fff;
+    background-color: #ffffff;
+    /* White background */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -163,6 +167,26 @@
     color: #333;
     font-weight: 500;
 }
+
+/* Call to Action Section */
+.call-to-action {
+    padding: 60px 20px;
+    background-color: #cce7ff;
+    /* Light bluish background */
+    text-align: center;
+}
+
+.call-to-action h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.call-to-action p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero h1 {
