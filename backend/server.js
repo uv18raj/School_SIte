@@ -5,16 +5,14 @@ const dotenv = require("dotenv");
 const studentRoutes = require("./routes/students");
 const cors = require("cors");
 
-// Load environment variables from .env file
 dotenv.config();
 
 const app = express();
 
-// Enable CORS and parse JSON payloads
 app.use(
   cors({
     origin:
-      process.env.FRONTEND_URL || "https://school-frontend-w9x5.onrender.com", // Fixed URL
+      process.env.FRONTEND_URL || "https://school-frontend-w9x5.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
@@ -22,8 +20,10 @@ app.use(
 
 app.use(express.json());
 
+// Set up the routes
 app.use("/api/students", studentRoutes);
 
+// Connect to MongoDB
 mongoose
   .connect(
     process.env.MONGO_URI || "mongodb://localhost:27017/school-fee-details",
@@ -38,7 +38,8 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
     setTimeout(() => {
-      process.exit(1); 
+      process.exit(1); // Exit if MongoDB connection fails after a delay
+    }, 1000); // Wait for 1 second before exiting
   });
 
 // Start the server
