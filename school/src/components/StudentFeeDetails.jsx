@@ -29,9 +29,15 @@ const StudentFeeDetails = () => {
     console.log("Sending data:", newFeeRecord);  // Log to check the data being sent
 
     try {
+<<<<<<< HEAD
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/students/add`, newFeeRecord);
       setSuccess(response.data.message); 
       setError("");  
+=======
+      const response = await axios.post("https://school-site-backend.onrender.com", newFeeRecord);
+      setSuccess(response.data.message); // Display success message from the backend
+      setError("");  // Clear any previous error message
+>>>>>>> 25e4165fbecddc2b55902d2f7097c5b903955741
     } catch (error) {
       console.error("Error:", error.response ? error.response.data : error);
       setError("Failed to add fee details. Please try again later.");
