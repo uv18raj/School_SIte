@@ -29,7 +29,7 @@ const StudentFeeDetails = () => {
     console.log("Sending data:", newFeeRecord);  // Log to check the data being sent
 
     try {
-      const response = await axios.post("http://localhost:5001/api/students/add", newFeeRecord);
+      const response = await axios.post("https://school-site-backend.onrender.com", newFeeRecord);
       setSuccess(response.data.message); // Display success message from the backend
       setError("");  // Clear any previous error message
     } catch (error) {
