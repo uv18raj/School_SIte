@@ -61,7 +61,7 @@ Message: ${formData.message}`
           <p>If you have any questions, feel free to reach out to us!</p>
           <p><b>Email: </b><a href="mailto:kaizenplayschool@gmail.com">kaizenpreplayschool@gmail.com</a></p>
           <p><b>Phone:</b> <a href="tel:+917909019167">+91 7909019167</a></p>
-          <p><b>Address:</b> Kaizen Play School, Dhanbad, Jharkhand</p>
+          <p><b>Address:</b> Kaizen Play School, Giridih, Jharkhand</p>
         </div>
 
         <div className="form-container">
