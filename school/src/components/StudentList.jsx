@@ -9,7 +9,7 @@ const StudentList = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/api/students');
+        const response = await axios.get('https://school-site-backend.onrender.com');
         setStudents(response.data);
       } catch (error) {
         console.error("Error fetching student data", error);
