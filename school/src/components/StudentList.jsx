@@ -9,14 +9,11 @@ const StudentList = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-<<<<<<< HEAD
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/students`);;
-=======
-        const response = await axios.get('https://school-site-backend.onrender.com');
->>>>>>> 25e4165fbecddc2b55902d2f7097c5b903955741
-        setStudents(response.data);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/students`);
+        // or
+        // const response = await axios.get('https://school-site-backend.onrender.com');
       } catch (error) {
-        console.error("Error fetching student data", error);
+        console.error('Error fetching students:', error);
       }
     };
 
