@@ -62,12 +62,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="call-to-action">
-        <h2>Ready to Enroll?</h2>
-        <p>Let us be a part of your child’s early learning journey. Join our vibrant community today!</p>
-        <a href="/contactus" className="cta-button">Contact Us</a>
-      </section>
     </div>
   );
 }
