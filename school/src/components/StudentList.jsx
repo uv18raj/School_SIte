@@ -6,12 +6,12 @@ const StudentList = () => {
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Fetch students data on component mount
   useEffect(() => {
     const fetchStudents = async () => {
       try {
         const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/students`);
-        // Use the fetched data to update the students state
-        setStudents(data);
+        setStudents(data); // Update students state with fetched data
       } catch (error) {
         console.error('Error fetching students:', error);
       }
@@ -20,22 +20,27 @@ const StudentList = () => {
     fetchStudents();
   }, []);
 
+  // Handle search term change
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
+  // Handle student deletion
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/students/delete/${id}`);
-      alert("Student details deleted successfully!");
-      // Reload the list after deletion
-      setStudents(students.filter((student) => student._id !== id));
+      const response = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/students/delete/${id}`);
+      if (response.status === 200) {
+        alert("Student details deleted successfully!");
+        // Remove the deleted student from the list
+        setStudents(students.filter((student) => student._id !== id));
+      }
     } catch (error) {
-      console.error("Error deleting student", error);
+      console.error("Error deleting student:", error);
       alert("Failed to delete student.");
     }
   };
 
+  // Filter students based on search term
   const filteredStudents = students.filter((student) =>
     student.studentName && student.studentName.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -43,6 +48,7 @@ const StudentList = () => {
   return (
     <div className="student-list-container">
       <h2>Student Fee Details</h2>
+
       <input
         type="text"
         placeholder="Search by student name"
@@ -50,6 +56,7 @@ const StudentList = () => {
         onChange={handleSearchChange}
         className="search-input"
       />
+
       <table className="student-table">
         <thead>
           <tr>
@@ -66,8 +73,9 @@ const StudentList = () => {
               <td>{student.studentName}</td>
               <td>{student.feeOfMonth}</td>
               <td>Rs {student.totalAmountPaid}</td>
-              <td> {new Date(student.datePaid).toLocaleDateString('en-GB')}{" "}
-                  {new Date(student.datePaid).toLocaleTimeString('en-US', { hour12: false })}
+              <td>
+                {new Date(student.datePaid).toLocaleDateString('en-GB')}{" "}
+                {new Date(student.datePaid).toLocaleTimeString('en-US', { hour12: false })}
               </td>
               <td>
                 <button

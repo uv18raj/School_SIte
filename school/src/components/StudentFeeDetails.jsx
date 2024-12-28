@@ -29,13 +29,27 @@ const StudentFeeDetails = () => {
     console.log("Sending data:", newFeeRecord);  // Log to check the data being sent
 
     try {
-      // Use the backend URL defined in .env or hardcoded URL
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/students/add`, newFeeRecord);
-      setSuccess(response.data.message); // Display success message from the backend
-      setError("");  // Clear any previous error message
+      // Use the backend URL from environment variable
+      const backendUrl = process.env.REACT_APP_BACKEND_URL;
+      
+      // Ensure the backend URL is set
+      if (!backendUrl) {
+        setError("Backend URL is not defined in the .env file.");
+        return;
+      }
+
+      const response = await axios.post(`${backendUrl}/api/students/add`, newFeeRecord);
+      
+      setSuccess(response.data.message); 
+      setError("");  
     } catch (error) {
       console.error("Error:", error.response ? error.response.data : error);
-      setError("Failed to add fee details. Please try again later.");
+      
+      if (error.response && error.response.data) {
+        setError(error.response.data.message || "Failed to add fee details. Please try again later.");
+      } else {
+        setError("Network error. Please try again later.");
+      }
     }
   };
 
