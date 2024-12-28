@@ -2,6 +2,7 @@ import React from 'react';
 import facultyImg from '../assets/faculty.webp';
 import developmentImg from '../assets/development.jpg';
 import learningImg from '../assets/learning.jpg';
+import { Link } from 'react-router-dom';
 import facilitiesImg from '../assets/facilities.avif';
 import './Home.css';
 
@@ -14,7 +15,7 @@ function Home() {
           <h1>Welcome to Kaizen Play School</h1>
           <p>Your child's bright future starts here.</p>
           <p>We believe that learning is fun! Join us in a journey filled with creativity, growth, and discovery.</p>
-          <a href="/contactus" className="cta-button">Get Started</a>
+          <Link to="/contactus" className="cta-button">Contact Us</Link>
         </div>
       </section>
 
