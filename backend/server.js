@@ -14,15 +14,16 @@ const app = express();
 app.use(
   cors({
     origin:
-      process.env.FRONTEND_URL || "https://school-frontend-w9x5.onrender.com/",
+      process.env.FRONTEND_URL || "https://school-frontend-w9x5.onrender.com", // Fixed URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
   })
 );
+
 app.use(express.json());
 
-// Set up the routes
 app.use("/api/students", studentRoutes);
 
-// Connect to MongoDB
 mongoose
   .connect(
     process.env.MONGO_URI || "mongodb://localhost:27017/school-fee-details",
@@ -36,11 +37,12 @@ mongoose
   })
   .catch((err) => {
     console.error("MongoDB connection error:", err);
-    process.exit(1); // Exit if MongoDB connection fails
+    setTimeout(() => {
+      process.exit(1); 
   });
 
 // Start the server
-const PORT = 5001;
+const PORT = process.env.PORT || 5001; // Use dynamic port from environment variable
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
