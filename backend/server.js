@@ -14,7 +14,7 @@ const app = express();
 app.use(
   cors({
     origin:
-      process.env.FRONTEND_URL || "https://school-frontend-w9x5.onrender.com", // Correct origin without the trailing slash
+      process.env.FRONTEND_URL || "https://school-frontend-w9x5.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
