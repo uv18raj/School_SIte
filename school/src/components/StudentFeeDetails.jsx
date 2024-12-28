@@ -29,15 +29,10 @@ const StudentFeeDetails = () => {
     console.log("Sending data:", newFeeRecord);  // Log to check the data being sent
 
     try {
-<<<<<<< HEAD
+      // Use the backend URL defined in .env or hardcoded URL
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/students/add`, newFeeRecord);
-      setSuccess(response.data.message); 
-      setError("");  
-=======
-      const response = await axios.post("https://school-site-backend.onrender.com", newFeeRecord);
       setSuccess(response.data.message); // Display success message from the backend
       setError("");  // Clear any previous error message
->>>>>>> 25e4165fbecddc2b55902d2f7097c5b903955741
     } catch (error) {
       console.error("Error:", error.response ? error.response.data : error);
       setError("Failed to add fee details. Please try again later.");
@@ -52,55 +47,54 @@ const StudentFeeDetails = () => {
       {success && <div className="success-message">{success}</div>}  
 
       <form onSubmit={handleSubmit} className="fee-form">
-  <div className="input-container">
-    <label htmlFor="studentName">Student Name</label>
-    <input
-      type="text"
+        <div className="input-container">
+          <label htmlFor="studentName">Student Name</label>
+          <input
+            type="text"
             id="studentName"
             autoComplete="off"
-      className="input-field"
-      value={studentName}
-      onChange={(e) => setStudentName(e.target.value)}
-    />
-  </div>
+            className="input-field"
+            value={studentName}
+            onChange={(e) => setStudentName(e.target.value)}
+          />
+        </div>
 
-  <div className="input-container">
-    <label htmlFor="feeOfMonth">Fee of the Month</label>
-    <input
+        <div className="input-container">
+          <label htmlFor="feeOfMonth">Fee of the Month</label>
+          <input
             type="text"
             autoComplete="off"
-      id="feeOfMonth"
-      className="input-field"
-      value={feeOfMonth}
-      onChange={(e) => setFeeOfMonth(e.target.value)}
-    />
-  </div>
+            id="feeOfMonth"
+            className="input-field"
+            value={feeOfMonth}
+            onChange={(e) => setFeeOfMonth(e.target.value)}
+          />
+        </div>
 
-  <div className="input-container">
-    <label htmlFor="totalAmountPaid">Total Amount Paid</label>
-    <input
-      type="number"
-      id="totalAmountPaid"
-      className="input-field"
-      value={totalAmountPaid}
-      onChange={(e) => setTotalAmountPaid(e.target.value)}
-    />
-  </div>
+        <div className="input-container">
+          <label htmlFor="totalAmountPaid">Total Amount Paid</label>
+          <input
+            type="number"
+            id="totalAmountPaid"
+            className="input-field"
+            value={totalAmountPaid}
+            onChange={(e) => setTotalAmountPaid(e.target.value)}
+          />
+        </div>
 
-  <div className="input-container">
-    <label htmlFor="datePaid">Date Paid</label>
-    <input
-      type="date"
-      id="datePaid"
-      className="input-field"
-      value={datePaid}
-      onChange={(e) => setDatePaid(e.target.value)}
-    />
-  </div>
+        <div className="input-container">
+          <label htmlFor="datePaid">Date Paid</label>
+          <input
+            type="date"
+            id="datePaid"
+            className="input-field"
+            value={datePaid}
+            onChange={(e) => setDatePaid(e.target.value)}
+          />
+        </div>
 
-  <button type="submit" className="submit-btn">Add Fee Details</button>
-</form>
-
+        <button type="submit" className="submit-btn">Add Fee Details</button>
+      </form>
     </div>
   );
 };
