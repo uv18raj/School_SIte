@@ -1,16 +1,13 @@
-// Import the required packages
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const studentRoutes = require("./routes/students");
 const cors = require("cors");
 
-// Load environment variables from .env file
 dotenv.config();
 
 const app = express();
 
-// Enable CORS and parse JSON payloads
 app.use(
   cors({
     origin:
@@ -21,10 +18,8 @@ app.use(
 );
 app.use(express.json());
 
-// Set up the routes
 app.use("/api/students", studentRoutes);
 
-// Connect to MongoDB
 mongoose
   .connect(
     process.env.MONGO_URI || "mongodb://localhost:27017/school-fee-details",
@@ -39,12 +34,11 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
     setTimeout(() => {
-      process.exit(1); // Exit if MongoDB connection fails after a delay
-    }, 1000); // Wait for 1 second before exiting
+      process.exit(1);
+    }, 1000);
   });
 
-// Start the server
-const PORT = process.env.PORT || 5001; // Use dynamic port from environment variable
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
