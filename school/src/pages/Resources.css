@@ -57,6 +57,7 @@
     line-height: 1.5;
     color: #455a64;
 }
+
 .resource-link {
     display: inline-block;
     margin: 10px auto;
@@ -95,5 +96,22 @@
 @media (max-width: 768px) {
     .resource-card {
         width: 90%;
+    }
+
+    .resources-container h1 {
+        font-size: 2rem;
+    }
+
+    .resources-container p {
+        font-size: 16px;
+    }
+
+    .resource-card h2 {
+        font-size: 18px;
+    }
+
+    .resource-link {
+        padding: 8px 14px;
+        font-size: 0.9rem;
     }
 }

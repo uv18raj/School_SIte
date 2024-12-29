@@ -4,12 +4,13 @@ import developmentImg from '../assets/development.jpg';
 import learningImg from '../assets/learning.jpg';
 import { Link } from 'react-router-dom';
 import facilitiesImg from '../assets/facilities.avif';
+import parent1Img from '../assets/parent1.jpg';  // Add the parent image import
+import parent2Img from '../assets/parent2.webp';  // Add another parent image import
 import './Home.css';
 
 function Home() {
   return (
     <div className="home-container">
-      {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
           <h1>Welcome to Kaizen Play School</h1>
@@ -19,7 +20,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       <section className="why-choose-us">
         <h2>Why Choose Us?</h2>
         <div className="cards-container">
@@ -34,8 +34,7 @@ function Home() {
             <p>We use creative techniques to keep children engaged and curious.</p>
           </div>
           <div className="card">
-            <img src={developmentImg} alt="here children developes in holistic way" />
-
+            <img src={developmentImg} alt="Here children develop in a holistic way" />
             <h3>Holistic Development</h3>
             <p>We foster not just academic growth but also emotional and physical development.</p>
           </div>
@@ -47,21 +46,21 @@ function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
       <section className="testimonials">
         <h2>What Parents Say</h2>
         <div className="testimonial-slider">
           <div className="testimonial">
+            <img src={parent1Img} alt="Parent 1" className="testimonial-img" />
             <p>"Kaizen Play School has been an incredible experience for our child. They love going to school every day!"</p>
             <h4>- Parent of Student</h4>
           </div>
           <div className="testimonial">
+            <img src={parent2Img} alt="Parent 2" className="testimonial-img" />
             <p>"The teachers are kind, and the learning environment is so nurturing. Our child has blossomed here."</p>
             <h4>- Parent of Student</h4>
           </div>
         </div>
       </section>
-
     </div>
   );
 }
