@@ -70,7 +70,7 @@ const StudentList = () => {
               <td>Rs {student.totalAmountPaid}</td>
               <td>
                 {new Date(student.datePaid).toLocaleDateString('en-GB')}{" "}
-                {new Date(student.datePaid).toLocaleTimeString('en-US', { hour12: false })}
+                {new Date(student.datePaid).toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true })}
               </td>
               <td>
                 <button
