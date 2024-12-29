@@ -6,12 +6,11 @@ const StudentList = () => {
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Fetch students data on component mount
   useEffect(() => {
     const fetchStudents = async () => {
       try {
         const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/students`);
-        setStudents(data); // Update students state with fetched data
+        setStudents(data); 
       } catch (error) {
         console.error('Error fetching students:', error);
       }
@@ -20,18 +19,15 @@ const StudentList = () => {
     fetchStudents();
   }, []);
 
-  // Handle search term change
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  // Handle student deletion
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/students/delete/${id}`);
       if (response.status === 200) {
         alert("Student details deleted successfully!");
-        // Remove the deleted student from the list
         setStudents(students.filter((student) => student._id !== id));
       }
     } catch (error) {
@@ -40,7 +36,6 @@ const StudentList = () => {
     }
   };
 
-  // Filter students based on search term
   const filteredStudents = students.filter((student) =>
     student.studentName && student.studentName.toLowerCase().includes(searchTerm.toLowerCase())
   );

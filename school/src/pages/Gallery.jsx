@@ -13,7 +13,6 @@ function Gallery() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
 
-  // Correct images array to use imported image files
   const images = [
     image1,
     image2,

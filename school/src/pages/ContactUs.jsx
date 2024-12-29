@@ -27,10 +27,8 @@ Phone: ${formData.phone}
 Message: ${formData.message}`
     )}`;
 
-    // Open the mailto link in the user's default email client
     window.location.href = mailtoLink;
 
-    // Clear form after sending
     setFormData({
       name: '',
       email: '',
@@ -41,7 +39,6 @@ Message: ${formData.message}`
 
   return (
     <div>
-      {/* Map and details */}
       <div className="map-container">
         <iframe
           title="Kaizen Play School Location"

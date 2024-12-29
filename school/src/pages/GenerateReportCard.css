@@ -82,13 +82,14 @@
 /* Button styles */
 .add-subject-button {
     padding: 10px 20px;
-    background-color: #4caf50;
+    background-color:#4A90E2;
     color: #fff;
     font-size: 14px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+    width: 100%;
 }
 
 .add-subject-button:hover {
@@ -97,7 +98,7 @@
 
 .generate-report-button {
     padding: 12px 25px;
-    background-color: #ff5722;
+    background-color: #4A90E2;
     color: #fff;
     font-size: 16px;
     border: none;

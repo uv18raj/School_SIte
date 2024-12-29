@@ -1,6 +1,4 @@
-/* src/pages/Owner.css */
 
-/* Main container for login */
 .owner-container {
     display: flex;
     justify-content: center;
@@ -10,7 +8,6 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Form container for better alignment */
 .login-form-container {
     background-color: #ffffff;
     padding: 30px;
@@ -21,12 +18,10 @@
     transition: transform 0.3s ease;
 }
 
-/* When the form is hovered */
 .login-form-container:hover {
     transform: translateY(-5px);
 }
 
-/* Heading style */
 .login-heading {
     font-size: 2rem;
     font-weight: 600;
@@ -35,7 +30,6 @@
     text-align: center;
 }
 
-/* Label styles */
 .login-label {
     display: block;
     font-size: 1rem;
@@ -55,16 +49,14 @@
     transition: border-color 0.3s ease;
 }
 
-/* Focus state of input fields */
 .login-input:focus {
-    border-color: #4e73df;
+    border-color: #ff5722;
 }
 
-/* Button styles */
 .login-button {
     width: 100%;
     padding: 12px;
-    background-color: #ff5722;
+    background-color: #4A90E2;
     color: white;
     font-size: 1.1rem;
     font-weight: 600;
@@ -78,7 +70,6 @@
     background-color: #333;
 }
 
-/* Error message style */
 .error-message {
     color: #ff4d4d;
     font-size: 0.9rem;
@@ -87,7 +78,6 @@
     display: none;
 }
 
-/* Display the error message */
 .error-message.show {
     display: block;
 }

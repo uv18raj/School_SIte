@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './StudentFeeDetails.css'; // Import CSS file
+import './StudentFeeDetails.css'; 
 
 const StudentFeeDetails = () => {
   const [studentName, setStudentName] = useState("");
   const [feeOfMonth, setFeeOfMonth] = useState("");
   const [totalAmountPaid, setTotalAmountPaid] = useState("");
   const [datePaid, setDatePaid] = useState("");
-  const [error, setError] = useState("");  // State to store error message
-  const [success, setSuccess] = useState("");  // State to store success message
+  const [error, setError] = useState("");  
+  const [success, setSuccess] = useState(""); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate form fields
     if (!studentName || !feeOfMonth || !totalAmountPaid || !datePaid) {
       setError("All fields are required.");
       return;
@@ -26,13 +24,11 @@ const StudentFeeDetails = () => {
 
     const newFeeRecord = { studentName, feeOfMonth, totalAmountPaid: Number(totalAmountPaid), datePaid };
 
-    console.log("Sending data:", newFeeRecord);  // Log to check the data being sent
+    console.log("Sending data:", newFeeRecord); 
 
     try {
-      // Use the backend URL from environment variable
       const backendUrl = process.env.REACT_APP_BACKEND_URL;
       
-      // Ensure the backend URL is set
       if (!backendUrl) {
         setError("Backend URL is not defined in the .env file.");
         return;

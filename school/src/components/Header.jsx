@@ -1,7 +1,6 @@
-// src/components/Header.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css'; // You can create a separate CSS file for styling
+import './Header.css';
 
 function Header() {
   return (
@@ -14,7 +13,7 @@ function Header() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contactus">Contact Us</Link></li>
-          <li><Link to="/events">Events</Link></li>
+          <li><Link to="/resources">Resources</Link></li>
           <li><Link to="/gallery">Gallery</Link></li>
           <li><Link to="/owner">Owner</Link></li>
         </ul>
