@@ -95,19 +95,53 @@ p {
 }
 
 @media (max-width: 768px) {
+    .dashboard {
+        padding: 10px;
+    }
+
+    .dashboard-header {
+        margin-bottom: 15px;
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+
     .dashboard-nav {
         flex-direction: column;
+        align-items: center;
         gap: 15px;
     }
 
     .nav-button {
-        width: 80%;
-        margin-bottom: 10px;
+        width: 100%;
         padding: 15px;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
     }
 
     .dashboard-content {
-        width: 90%;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .home-section,
+    .report-card-section,
+    .fee-receipt-section,
+    .student-form-section,
+    .student-list-section {
         padding: 20px;
+    }
+
+    .home-section h3,
+    .report-card-section h3,
+    .fee-receipt-section h3,
+    .student-form-section h3,
+    .student-list-section h3 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1rem;
     }
 }
