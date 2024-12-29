@@ -1,256 +1,67 @@
-.report-card-container {
+.search-bar-container {
     width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f4f4f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.report-card-heading {
-    font-size: 24px;
-    text-align: center;
-    color: #333;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
-.report-card-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-label {
-    font-size: 14px;
-    color: #555;
-}
-
-.form-input {
+.search-bar-container input {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
     width: 100%;
-    box-sizing: border-box;
-}
-
-.subject-container {
-    margin-top: 20px;
-}
-
-.subject-container h3 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.subject-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    /* Allow the items to wrap in smaller screens */
-}
-
-.subject-input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    flex-grow: 1;
-}
-
-.marks-input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    width: 120px;
     max-width: 100%;
-    /* Ensure the input doesn't overflow */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
 }
 
-.add-subject-button {
+.search-bar-container button {
     padding: 10px 20px;
     background-color: #4A90E2;
-    color: #fff;
+    color: white;
     font-size: 14px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
     width: 100%;
+    max-width: 100%;
 }
 
-.add-subject-button:hover {
+.search-bar-container button:hover {
     background-color: #45a049;
 }
 
-.generate-report-button {
-    padding: 12px 25px;
-    background-color: #4A90E2;
-    color: #fff;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 30px;
-}
-
-.generate-report-button:hover {
-    background-color: #e64a19;
-}
-
-.info-box {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-    background-color: #fff;
-}
-
-.report-card-section {
-    margin: 15px 0;
-}
-
-.report-card-table {
-    margin-top: 30px;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.report-card-table th,
-.report-card-table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-.report-card-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-.signature-section {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.signature-section div {
-    text-align: center;
-    width: 45%;
-}
-
-.signature-line {
-    width: 100%;
-    border-top: 1px solid #000;
-    margin-top: 5px;
-}
-
-.signature-label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-}
-
-/* Mobile-friendly adjustments */
 @media (max-width: 768px) {
-    .report-card-container {
+    .search-bar-container {
         padding: 15px;
-        max-width: 95%;
+        margin-bottom: 15px;
     }
 
-    .report-card-heading {
-        font-size: 20px;
-    }
-
-    .form-label {
+    .search-bar-container input {
         font-size: 12px;
+        padding: 10px;
     }
 
-    .form-input {
-        font-size: 12px;
-    }
-
-    .subject-container h3 {
-        font-size: 16px;
-    }
-
-    .subject-input,
-    .marks-input {
-        font-size: 12px;
-    }
-
-    .marks-input {
-        width: 100%;
-        /* Allow marks input to take full width on smaller screens */
-        max-width: 100%;
-        /* Prevent overflow */
-    }
-
-    .add-subject-button,
-    .generate-report-button {
+    .search-bar-container button {
         font-size: 14px;
         padding: 10px 18px;
-    }
-
-    .report-card-table th,
-    .report-card-table td {
-        font-size: 12px;
-    }
-
-    .signature-label {
-        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
-    .report-card-container {
-        padding: 10px;
-        max-width: 100%;
-    }
-
-    .report-card-heading {
-        font-size: 18px;
-    }
-
-    .form-label {
+    .search-bar-container input {
         font-size: 10px;
+        padding: 8px;
     }
 
-    .form-input {
-        font-size: 10px;
-    }
-
-    .subject-container h3 {
-        font-size: 14px;
-    }
-
-    .subject-input,
-    .marks-input {
-        font-size: 10px;
-    }
-
-    .marks-input {
-        width: 100%;
-        /* Ensure marks input is responsive and fits on small screens */
-    }
-
-    .add-subject-button,
-    .generate-report-button {
+    .search-bar-container button {
         font-size: 12px;
         padding: 8px 15px;
-    }
-
-    .report-card-table th,
-    .report-card-table td {
-        font-size: 10px;
-    }
-
-    .signature-label {
-        font-size: 10px;
     }
 }
