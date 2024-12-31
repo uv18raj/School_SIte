@@ -206,6 +206,7 @@ const GenerateReportCard = () => {
               />
             </div>
           ))}
+          <br></br>
           <button type="button" onClick={addSubject} className="add-subject-button">Add Subject</button>
         </div>
       </form>

@@ -13,11 +13,17 @@ function Owner() {
     e.preventDefault();
 
     // Hardcoded credentials check
-    if (username === 'Kaizen' && password === 'kaizen@1234') {
-      navigate('/dashboard'); // Redirect to Dashboard if credentials are correct
-    } else {
-      setErrorMessage('Invalid username or password');
-    }
+    const normalizedUsername = username.toLowerCase();
+    const normalizedPassword = password.toLowerCase();
+    const correctUsername = 'kaizen'; 
+    const correctPassword = 'kaizen@1234'; 
+
+   if (normalizedUsername === correctUsername && normalizedPassword === correctPassword) {
+     navigate('/dashboard'); 
+   } else {
+     setErrorMessage('Invalid username or password'); 
+   }
+
   };
 
   return (
