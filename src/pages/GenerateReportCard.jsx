@@ -41,9 +41,8 @@ const GenerateReportCard = () => {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(22);
     doc.setTextColor(56, 96, 178);
-    doc.text("Kaizen Play School", 105, 20, { align: "center" });
+    doc.text("Kaizen Pre Play School", 105, 20, { align: "center" });
 
-    // Address & Contact Info
     doc.setFontSize(10);
     doc.setTextColor(100, 100, 100);
     doc.text("Mohanpur, Giridih, Jharkhand, PIN - 815311", 105, 30, { align: "center" });

@@ -14,12 +14,11 @@ const GenerateReceipt = () => {
   const generateReceipt = () => {
     const doc = new jsPDF();
 
-    // Function to print receipt content
     const printReceipt = (startY) => {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(26);
       doc.setTextColor(50, 50, 255);
-      doc.text("Kaizen Play School", 105, startY, { align: "center" });
+      doc.text("Kaizen Pre Play School", 105, startY, { align: "center" });
 
       doc.setFont("helvetica", "normal");
       doc.setFontSize(12);

@@ -28,7 +28,7 @@ function Owner() {
 
   return (
     <div className="owner-container">
-      <h1>Welcome to Kaizen Play School's Owner Section</h1>
+      <h1>Welcome to Kaizen Pre Play School's Owner Section</h1>
 
       <div className="login-form-container">
         <h2 className="login-heading">Login</h2>
