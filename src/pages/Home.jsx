@@ -13,7 +13,7 @@ function Home() {
     <div className="home-container">
       <section className="hero">
         <div className="hero-content">
-          <h1>Welcome to Kaizen Pre Play School</h1>
+          <h1>Welcome to Kaizen Play School</h1>
           <p>Your child's bright future starts here.</p>
           <p>We believe that learning is fun! Join us in a journey filled with creativity, growth, and discovery.</p>
           <Link to="/contactus" className="cta-button">Contact Us</Link>

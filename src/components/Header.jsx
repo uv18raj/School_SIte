@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <h1>Kaizen Pre Play School</h1>
+        <h1>Kaizen Play School</h1>
       </div>
       <nav>
         <ul>

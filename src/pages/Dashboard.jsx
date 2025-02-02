@@ -15,7 +15,7 @@ function Dashboard() {
   return (
     <div className="dashboard">
       <header className="dashboard-header">
-        <h2 className="dashboard-title">Kaizen Pre Play School Dashboard</h2>
+        <h2 className="dashboard-title">Kaizen Play School Dashboard</h2>
         <p className="dashboard-welcome">
           Welcome to the School's Dashboard! Let's work together to create a wonderful learning experience!
         </p>

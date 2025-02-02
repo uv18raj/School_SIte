@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>&copy; 2024 Kaizen Pre Play School. All rights reserved.</p>
+        <p>&copy; 2024 Kaizen Play School. All rights reserved.</p>
         <p>Contact us: kaizenpreplayschool@gmail.com | +91 7909019167</p>
         <div className="social-links">
           <a href="https://www.youtube.com/@Pravin_Kumr14" target="_blank" rel="noopener noreferrer" className="social-link"><img src ={ytImg} alt='Youtube link to go to youtube channel'/></a>
