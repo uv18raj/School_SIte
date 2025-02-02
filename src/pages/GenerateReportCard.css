@@ -1,0 +1,204 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+.report-card-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.report-card-heading {
+    text-align: center;
+    font-size: 32px;
+    color: #1e70a4;
+    margin-bottom: 20px;
+}
+
+.report-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 14px;
+    color: #555;
+}
+
+.form-input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-input:focus {
+    border-color: #1e70a4;
+}
+
+.subject-container {
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+}
+
+.subject-container h3 {
+    font-size: 20px;
+    color: #1e70a4;
+    margin-bottom: 10px;
+}
+
+.subject-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.subject-input,
+.marks-input {
+    width: 48%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.subject-input:focus,
+.marks-input:focus {
+    border-color: #1e70a4;
+}
+
+.add-subject-button {
+    background-color: #1e70a4;
+    color: white;
+    padding: 7px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+
+}
+
+.add-subject-button:hover {
+    background-color: #175b86;
+}
+
+.generate-report-button {
+    background-color: #f59c42;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.generate-report-button:hover {
+    background-color: #e68930;
+}
+
+@media (max-width: 768px) {
+    .report-card-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .report-card-heading {
+        font-size: 28px;
+    }
+
+    .form-input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .subject-input,
+    .marks-input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .add-subject-button,
+    .generate-report-button {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .report-card-heading {
+        font-size: 24px;
+    }
+
+    .form-input {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .subject-input,
+    .marks-input {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .add-subject-button,
+    .generate-report-button {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .report-card-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .form-group {
+        gap: 12px;
+    }
+
+    .subject-row {
+        flex-direction: column;
+    }
+
+    .subject-input,
+    .marks-input {
+        width: 100%;
+    }
+
+    .add-subject-button {
+        width: 100%;
+    }
+
+    .generate-report-button {
+        width: 100%;
+    }
+}
