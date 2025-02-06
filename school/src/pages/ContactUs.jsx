@@ -41,7 +41,7 @@ Message: ${formData.message}`
     <div>
       <div className="map-container">
         <iframe
-          title="Kaizen Play School Location"
+          title="Kaizen Pre Play School Location"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.3171951406894!2d86.28383357457757!3d24.195668071538066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f157066ac70839%3A0x75ea7cfcff4b336e!2sKaizen%20Play%20School!5e0!3m2!1sen!2sin!4v1735153414276!5m2!1sen!2sin"
           width="100%"
           height="450"
@@ -58,7 +58,7 @@ Message: ${formData.message}`
           <p>If you have any questions, feel free to reach out to us!</p>
           <p><b>Email: </b><a href="mailto:kaizenplayschool@gmail.com">kaizenpreplayschool@gmail.com</a></p>
           <p><b>Phone:</b> <a href="tel:+917909019167">+91 7909019167</a></p>
-          <p><b>Address:</b> Kaizen Play School, Giridih, Jharkhand</p>
+          <p><b>Address:</b> Kaizen Pre Play School, Giridih, Jharkhand</p>
         </div>
 
         <div className="form-container">
