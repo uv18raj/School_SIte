@@ -19,7 +19,7 @@ const GenerateReceipt = () => {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(26);
       doc.setTextColor(50, 50, 255);
-      doc.text("Kaizen Pre Play School", 105, startY, { align: "center" });
+      doc.text("Kaizen Pre-Play School", 105, startY, { align: "center" });
 
       doc.setFont("helvetica", "normal");
       doc.setFontSize(12);
@@ -93,7 +93,7 @@ const GenerateReceipt = () => {
       <form
         className="receipt-form"
         onSubmit={(e) => {
-          e.preventDefault(); // Prevent page reload on form submit
+          e.preventDefault(); 
           generateReceipt();
         }}
       >

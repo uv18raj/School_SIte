@@ -41,7 +41,7 @@ const GenerateReportCard = () => {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(22);
     doc.setTextColor(56, 96, 178);
-    doc.text("Kaizen Pre Play School", 105, 20, { align: "center" });
+    doc.text("Kaizen Pre-Play School", 105, 20, { align: "center" });
 
     // Address & Contact Info
     doc.setFontSize(10);
