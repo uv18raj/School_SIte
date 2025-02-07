@@ -11,7 +11,7 @@ function About() {
             <h2>Meet Our Director</h2>
             <p>Our director, Mr.Praveen Kumar, brings years of experience and dedication to Kaizen Pre-Play School. With a deep passion for early childhood education and a commitment to shaping young minds, Our director is at the forefront of our mission to provide a nurturing and innovative learning environment.</p>
             <p>Under our director's leadership, we have implemented creative and progressive teaching methodologies, emphasizing the holistic development of each child. Their vision is to create a space where learning is fun, engaging, and purposeful, preparing students to succeed in every aspect of life.</p>
-            <p>With a hands-on approach and a deep understanding of child development, Our director ensures that Kaizen Play School remains a place where both students and educators thrive, fostering a culture of excellence and care.</p>
+            <p>With a hands-on approach and a deep understanding of child development, Our director ensures that Kaizen-Pre Play School remains a place where both students and educators thrive, fostering a culture of excellence and care.</p>
           </div>
           <div className="director-photo">
             <img src={directorImage} alt="Director of Kaizen Pre Play School" />
