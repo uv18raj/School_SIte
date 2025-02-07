@@ -11,7 +11,6 @@ const GenerateReportCard = () => {
   const [address, setAddress] = useState("");
   const [subjects, setSubjects] = useState([{ name: "", marks: "" }]);
 
-  // Function to calculate total marks and percentage
   const calculateTotalAndPercentage = () => {
     let totalMarks = 0;
     let validSubjects = 0;
@@ -24,11 +23,12 @@ const GenerateReportCard = () => {
       }
     });
 
-    const percentage = validSubjects > 0 ? (totalMarks / (validSubjects * 100)) * 100 : 0;
-    return { totalMarks, percentage };
+    const totalMarksPossible = validSubjects * 100;
+    const percentage = totalMarksPossible > 0 ? (totalMarks / totalMarksPossible) * 100 : 0;
+
+    return { totalMarks, totalMarksPossible, percentage };
   };
 
-  // Function to generate report card
   const generateReportCard = () => {
     if (!studentName || !className || !examName || !session || !address) {
       alert("Please fill in all the fields before generating the report card.");
@@ -37,30 +37,26 @@ const GenerateReportCard = () => {
 
     const doc = new jsPDF();
 
-    // School Header
     doc.setFont("helvetica", "bold");
     doc.setFontSize(22);
     doc.setTextColor(56, 96, 178);
     doc.text("Kaizen Pre-Play School", 105, 20, { align: "center" });
 
-    // Address & Contact Info
     doc.setFontSize(10);
     doc.setTextColor(100, 100, 100);
     doc.text("Mohanpur, Giridih, Jharkhand, PIN - 815311", 105, 30, { align: "center" });
     doc.text("Phone: +91 7909019167", 105, 35, { align: "center" });
 
-    // Title
+   
     doc.setFontSize(18);
     doc.setTextColor(255, 87, 34);
     doc.text("Student Report Card", 105, 50, { align: "center" });
 
-    // Date
     const currentDate = new Date().toLocaleDateString();
     doc.setFontSize(12);
     doc.setTextColor(50, 50, 50);
     doc.text(`Date: ${currentDate}`, 105, 60, { align: "center" });
 
-    // Student Information Box
     const infoBoxY = 70;
     doc.setDrawColor(0, 0, 0);
     doc.rect(20, infoBoxY, 170, 40);
@@ -74,7 +70,6 @@ const GenerateReportCard = () => {
     doc.text("Session:", 120, infoBoxY + 10);
     doc.text("Address:", 120, infoBoxY + 20);
 
-    // Fill in the student data
     doc.setFont("helvetica", "normal");
     doc.text(studentName, 60, infoBoxY + 10);
     doc.text(className, 60, infoBoxY + 20);
@@ -86,8 +81,7 @@ const GenerateReportCard = () => {
       doc.text(line, 150, infoBoxY + 20 + index * 5);
     });
 
-    // Subjects Table
-    const { totalMarks, percentage } = calculateTotalAndPercentage();
+    const { totalMarks, totalMarksPossible, percentage } = calculateTotalAndPercentage();
     doc.autoTable({
       startY: infoBoxY + 50,
       head: [["Subject", "Marks"]],
@@ -99,16 +93,14 @@ const GenerateReportCard = () => {
       margin: { top: 10, left: 20, right: 20 },
     });
 
-    // Total Marks and Percentage
     const xPosition = 20;
     const yPosition = doc.lastAutoTable.finalY + 10;
     doc.setFont("helvetica", "bold");
     doc.text("Total Marks: ", xPosition, yPosition);
-    doc.text(totalMarks.toString(), xPosition + 28, yPosition);
+    doc.text(`${totalMarks} / ${totalMarksPossible}`, xPosition + 28, yPosition);
     doc.text("Percentage: ", xPosition, yPosition + 10);
     doc.text(`${percentage.toFixed(2)}%`, xPosition + 28, yPosition + 10);
 
-    // Signatures
     const footerY = doc.internal.pageSize.height - 30;
     doc.setFontSize(12);
     doc.text("Parent's Signature:", 15, footerY);
@@ -116,7 +108,6 @@ const GenerateReportCard = () => {
     doc.text("Authorized Signature:", 115, footerY);
     doc.line(160, footerY + 2, 195, footerY + 2);
 
-    // Save the PDF
     doc.save(`${studentName}_ReportCard.pdf`);
   };
 
@@ -166,26 +157,6 @@ const GenerateReportCard = () => {
             className="form-input"
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="session" className="form-label">Session:</label>
-          <input
-            id="session"
-            type="text"
-            value={session}
-            onChange={(e) => setSession(e.target.value)}
-            className="form-input"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="address" className="form-label">Address:</label>
-          <input
-            id="address"
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            className="form-input"
-          />
-        </div>
         <div className="subject-container">
           <h3>Subjects</h3>
           {subjects.map((subject, index) => (
@@ -206,7 +177,6 @@ const GenerateReportCard = () => {
               />
             </div>
           ))}
-          <br></br>
           <button type="button" onClick={addSubject} className="add-subject-button">Add Subject</button>
         </div>
       </form>
