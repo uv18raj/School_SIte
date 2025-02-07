@@ -47,7 +47,6 @@ const GenerateReportCard = () => {
     doc.text("Mohanpur, Giridih, Jharkhand, PIN - 815311", 105, 30, { align: "center" });
     doc.text("Phone: +91 7909019167", 105, 35, { align: "center" });
 
-   
     doc.setFontSize(18);
     doc.setTextColor(255, 87, 34);
     doc.text("Student Report Card", 105, 50, { align: "center" });
@@ -57,56 +56,18 @@ const GenerateReportCard = () => {
     doc.setTextColor(50, 50, 50);
     doc.text(`Date: ${currentDate}`, 105, 60, { align: "center" });
 
-    const infoBoxY = 70;
-    doc.setDrawColor(0, 0, 0);
-    doc.rect(20, infoBoxY, 170, 40);
-
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0);
-    doc.text("Student Name:", 25, infoBoxY + 10);
-    doc.text("Class:", 25, infoBoxY + 20);
-    doc.text("Exam Name:", 25, infoBoxY + 30);
-
-    doc.text("Session:", 120, infoBoxY + 10);
-    doc.text("Address:", 120, infoBoxY + 20);
-
-    doc.setFont("helvetica", "normal");
-    doc.text(studentName, 60, infoBoxY + 10);
-    doc.text(className, 60, infoBoxY + 20);
-    doc.text(examName, 60, infoBoxY + 30);
-    doc.text(session, 150, infoBoxY + 10);
-
-    const addressLines = doc.splitTextToSize(address, 40);
-    addressLines.forEach((line, index) => {
-      doc.text(line, 150, infoBoxY + 20 + index * 5);
-    });
-
     const { totalMarks, totalMarksPossible, percentage } = calculateTotalAndPercentage();
     doc.autoTable({
-      startY: infoBoxY + 50,
+      startY: 70,
       head: [["Subject", "Marks"]],
-      body: subjects.map((subject) => [
-        subject.name || "-",
-        subject.marks || "-",
-      ]),
+      body: subjects.map((subject) => [subject.name || "-", subject.marks || "-"]),
       theme: "grid",
       margin: { top: 10, left: 20, right: 20 },
     });
 
-    const xPosition = 20;
-    const yPosition = doc.lastAutoTable.finalY + 10;
     doc.setFont("helvetica", "bold");
-    doc.text("Total Marks: ", xPosition, yPosition);
-    doc.text(`${totalMarks} / ${totalMarksPossible}`, xPosition + 28, yPosition);
-    doc.text("Percentage: ", xPosition, yPosition + 10);
-    doc.text(`${percentage.toFixed(2)}%`, xPosition + 28, yPosition + 10);
-
-    const footerY = doc.internal.pageSize.height - 30;
-    doc.setFontSize(12);
-    doc.text("Parent's Signature:", 15, footerY);
-    doc.line(55, footerY + 2, 90, footerY + 2);
-    doc.text("Authorized Signature:", 115, footerY);
-    doc.line(160, footerY + 2, 195, footerY + 2);
+    doc.text(`Total Marks: ${totalMarks} / ${totalMarksPossible}`, 20, doc.lastAutoTable.finalY + 10);
+    doc.text(`Percentage: ${percentage.toFixed(2)}%`, 20, doc.lastAutoTable.finalY + 20);
 
     doc.save(`${studentName}_ReportCard.pdf`);
   };
@@ -126,55 +87,31 @@ const GenerateReportCard = () => {
       <h2 className="report-card-heading">Generate Report Card</h2>
       <form className="report-card-form" autoComplete="off">
         <div className="form-group">
-          <label htmlFor="studentName" className="form-label">Student Name:</label>
-          <input
-            id="studentName"
-            type="text"
-            autoComplete="off"
-            value={studentName}
-            onChange={(e) => setStudentName(e.target.value)}
-            className="form-input"
-          />
+          <label>Student Name:</label>
+          <input type="text" value={studentName} onChange={(e) => setStudentName(e.target.value)} className="form-input" />
         </div>
         <div className="form-group">
-          <label htmlFor="className" className="form-label">Class:</label>
-          <input
-            id="className"
-            type="text"
-            autoComplete="off"
-            value={className}
-            onChange={(e) => setClassName(e.target.value)}
-            className="form-input"
-          />
+          <label>Class:</label>
+          <input type="text" value={className} onChange={(e) => setClassName(e.target.value)} className="form-input" />
         </div>
         <div className="form-group">
-          <label htmlFor="examName" className="form-label">Exam Name:</label>
-          <input
-            id="examName"
-            type="text"
-            value={examName}
-            onChange={(e) => setExamName(e.target.value)}
-            className="form-input"
-          />
+          <label>Exam Name:</label>
+          <input type="text" value={examName} onChange={(e) => setExamName(e.target.value)} className="form-input" />
+        </div>
+        <div className="form-group">
+          <label>Session:</label>
+          <input type="text" value={session} onChange={(e) => setSession(e.target.value)} className="form-input" />
+        </div>
+        <div className="form-group">
+          <label>Address:</label>
+          <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="form-input" />
         </div>
         <div className="subject-container">
           <h3>Subjects</h3>
           {subjects.map((subject, index) => (
             <div className="subject-row" key={index}>
-              <input
-                type="text"
-                placeholder="Subject Name"
-                value={subject.name}
-                onChange={(e) => handleSubjectChange(index, "name", e.target.value)}
-                className="subject-input"
-              />
-              <input
-                type="text"
-                placeholder="Marks/Grade"
-                value={subject.marks}
-                onChange={(e) => handleSubjectChange(index, "marks", e.target.value)}
-                className="marks-input"
-              />
+              <input type="text" placeholder="Subject Name" value={subject.name} onChange={(e) => handleSubjectChange(index, "name", e.target.value)} className="subject-input" />
+              <input type="text" placeholder="Marks" value={subject.marks} onChange={(e) => handleSubjectChange(index, "marks", e.target.value)} className="marks-input" />
             </div>
           ))}
           <button type="button" onClick={addSubject} className="add-subject-button">Add Subject</button>
