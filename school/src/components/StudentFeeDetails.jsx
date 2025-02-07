@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './StudentFeeDetails.css'; 
+import './StudentFeeDetails.css';
 
 const StudentFeeDetails = () => {
   const [studentName, setStudentName] = useState("");
   const [feeOfMonth, setFeeOfMonth] = useState("");
   const [totalAmountPaid, setTotalAmountPaid] = useState("");
   const [datePaid, setDatePaid] = useState("");
-  const [error, setError] = useState("");  
-  const [success, setSuccess] = useState(""); 
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!studentName || !feeOfMonth || !totalAmountPaid || !datePaid) {
       setError("All fields are required.");
       return;
@@ -22,30 +24,32 @@ const StudentFeeDetails = () => {
       return;
     }
 
-    const newFeeRecord = { studentName, feeOfMonth, totalAmountPaid: Number(totalAmountPaid), datePaid };
+    setError("");
+    setSuccess("");
+    setLoading(true);
 
-    console.log("Sending data:", newFeeRecord); 
+    const newFeeRecord = {
+      studentName,
+      feeOfMonth,
+      totalAmountPaid: Number(totalAmountPaid),
+      datePaid
+    };
 
     try {
       const backendUrl = process.env.REACT_APP_BACKEND_URL;
-      
-      if (!backendUrl) {
-        setError("Backend URL is not defined in the .env file.");
-        return;
-      }
+      if (!backendUrl) throw new Error("Backend URL is not defined in the .env file.");
 
       const response = await axios.post(`${backendUrl}/api/students/add`, newFeeRecord);
       
-      setSuccess(response.data.message); 
-      setError("");  
+      setSuccess(response.data.message || "Fee details added successfully.");
+      setStudentName("");
+      setFeeOfMonth("");
+      setTotalAmountPaid("");
+      setDatePaid("");
     } catch (error) {
-      console.error("Error:", error.response ? error.response.data : error);
-      
-      if (error.response && error.response.data) {
-        setError(error.response.data.message || "Failed to add fee details. Please try again later.");
-      } else {
-        setError("Network error. Please try again later.");
-      }
+      setError(error.response?.data?.message || "Failed to add fee details. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -53,8 +57,8 @@ const StudentFeeDetails = () => {
     <div className="student-fee-details-container">
       <h2 className="title">Add Fee Details</h2>
 
-      {error && <div className="error-message">{error}</div>} 
-      {success && <div className="success-message">{success}</div>}  
+      {error && <div className="error-message">{error}</div>}
+      {success && <div className="success-message">{success}</div>}
 
       <form onSubmit={handleSubmit} className="fee-form">
         <div className="input-container">
@@ -62,7 +66,6 @@ const StudentFeeDetails = () => {
           <input
             type="text"
             id="studentName"
-            autoComplete="off"
             className="input-field"
             value={studentName}
             onChange={(e) => setStudentName(e.target.value)}
@@ -73,7 +76,6 @@ const StudentFeeDetails = () => {
           <label htmlFor="feeOfMonth">Fee of the Month</label>
           <input
             type="text"
-            autoComplete="off"
             id="feeOfMonth"
             className="input-field"
             value={feeOfMonth}
@@ -103,7 +105,9 @@ const StudentFeeDetails = () => {
           />
         </div>
 
-        <button type="submit" className="submit-btn">Add Fee Details</button>
+        <button type="submit" className="submit-btn" disabled={loading}>
+          {loading ? "Adding..." : "Add Fee Details"}
+        </button>
       </form>
     </div>
   );
