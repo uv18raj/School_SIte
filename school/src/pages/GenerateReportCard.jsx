@@ -69,6 +69,18 @@ const GenerateReportCard = () => {
     doc.text(`Total Marks: ${totalMarks} / ${totalMarksPossible}`, 20, doc.lastAutoTable.finalY + 10);
     doc.text(`Percentage: ${percentage.toFixed(2)}%`, 20, doc.lastAutoTable.finalY + 20);
 
+    const footerY = doc.internal.pageSize.height - 30;
+    doc.setFontSize(12);
+    doc.text("Parent's Signature:", 15, footerY);
+    doc.line(55, footerY + 2, 90, footerY + 2);
+    doc.text("Authorized Signature:", 115, footerY);
+    doc.line(160, footerY + 2, 195, footerY + 2);
+
+
+    doc.setFontSize(10);
+    doc.setTextColor(150, 150, 150);
+    doc.text("This is a system-generated report card from Kaizen Pre-Play School.", 105, footerY + 15, { align: "center" });
+
     doc.save(`${studentName}_ReportCard.pdf`);
   };
 
